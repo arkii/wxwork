@@ -16,13 +16,13 @@
 package call
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetDialRecord = "/cgi-bin/dial/get_dial_record"
+    apiGetDialRecord = "/cgi-bin/dial/get_dial_record"
 )
 
 /*
@@ -35,5 +35,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93662
 POST https://qyapi.weixin.qq.com/cgi-bin/dial/get_dial_record?access_token=ACCESS_TOKEN
 */
 func GetDialRecord(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetDialRecord, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetDialRecord, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

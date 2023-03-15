@@ -15,235 +15,235 @@
 package main
 
 import (
-	"flag"
-	"fmt"
-	"io/ioutil"
-	"net/url"
-	"os"
-	"path"
-	"regexp"
-	"strings"
+    "flag"
+    "fmt"
+    "io/ioutil"
+    "net/url"
+    "os"
+    "path"
+    "regexp"
+    "strings"
 
-	"github.com/iancoleman/strcase"
+    "github.com/iancoleman/strcase"
 )
 
 type Param struct {
-	Name string
-	Type string
+    Name string
+    Type string
 }
 
 type Api struct {
-	Name        string
-	Description string
-	Request     string
-	See         string
-	FuncName    string
-	GetParams   []Param
+    Name        string
+    Description string
+    Request     string
+    See         string
+    FuncName    string
+    GetParams   []Param
 }
 
 type ApiGroup struct {
-	Name    string
-	Apis    []Api
-	Package string
+    Name    string
+    Apis    []Api
+    Package string
 }
 
 var apiConfig = []ApiGroup{}
 
 func main() {
 
-	var pkgFlag string
-	flag.StringVar(&pkgFlag, "package", "default", "")
-	flag.Parse()
+    var pkgFlag string
+    flag.StringVar(&pkgFlag, "package", "default", "")
+    flag.Parse()
 
-	apiConfig = apiConfigCrop
+    apiConfig = apiConfigCrop
 
-	for _, group := range apiConfig {
+    for _, group := range apiConfig {
 
-		if group.Package == pkgFlag || pkgFlag == "all" {
+        if group.Package == pkgFlag || pkgFlag == "all" {
 
-			if group.Package == "oauth" {
-				continue
-			}
+            if group.Package == "oauth" {
+                continue
+            }
 
-			build(group)
-		}
-	}
+            build(group)
+        }
+    }
 
-	if pkgFlag == "apilist" {
-		apilist()
-	}
+    if pkgFlag == "apilist" {
+        apilist()
+    }
 }
 
 func apilist() {
-	for _, group := range apiConfig {
-		fmt.Printf("- %s(%s)\n", group.Name, group.Package)
-		for _, api := range group.Apis {
-			split := strings.Split(api.Request, " ")
-			parse, _ := url.Parse(split[1])
+    for _, group := range apiConfig {
+        fmt.Printf("- %s(%s)\n", group.Name, group.Package)
+        for _, api := range group.Apis {
+            split := strings.Split(api.Request, " ")
+            parse, _ := url.Parse(split[1])
 
-			if api.FuncName == "" {
-				api.FuncName = strcase.ToCamel(path.Base(parse.Path))
-			}
+            if api.FuncName == "" {
+                api.FuncName = strcase.ToCamel(path.Base(parse.Path))
+            }
 
-			godocLink := fmt.Sprintf("https://pkg.go.dev/github.com/fastwego/wxwork/corporation/apis/%s?tab=doc#%s", group.Package, api.FuncName)
-			fmt.Printf("\t- [%s](%s) \n\t\t- [%s (%s)](%s)\n", api.Name, api.See, api.FuncName, parse.Path, godocLink)
-		}
-	}
+            godocLink := fmt.Sprintf("https://pkg.go.dev/github.com/arkii/wxwork/corporation/apis/%s?tab=doc#%s", group.Package, api.FuncName)
+            fmt.Printf("\t- [%s](%s) \n\t\t- [%s (%s)](%s)\n", api.Name, api.See, api.FuncName, parse.Path, godocLink)
+        }
+    }
 }
 
 func build(group ApiGroup) {
-	var funcs []string
-	var consts []string
-	var testFuncs []string
-	var exampleFuncs []string
+    var funcs []string
+    var consts []string
+    var testFuncs []string
+    var exampleFuncs []string
 
-	for _, api := range group.Apis {
-		tpl := postFuncTpl
-		_FUNC_NAME_ := ""
-		_GET_PARAMS_ := ""
-		_GET_SUFFIX_PARAMS_ := ""
-		_UPLOAD_ := "media"
-		_FIELD_NAME_ := ""
-		_FIELDS_ := ""
-		_PAYLOAD_ := ""
-		switch {
-		case strings.Contains(api.Request, "GET http"):
-			tpl = getFuncTpl
-		case strings.Contains(api.Request, "POST http"):
-			tpl = postFuncTpl
-		case strings.Contains(api.Request, "POST(@media"):
-			tpl = postUploadFuncTpl
-			_UPLOAD_ = "media"
+    for _, api := range group.Apis {
+        tpl := postFuncTpl
+        _FUNC_NAME_ := ""
+        _GET_PARAMS_ := ""
+        _GET_SUFFIX_PARAMS_ := ""
+        _UPLOAD_ := "media"
+        _FIELD_NAME_ := ""
+        _FIELDS_ := ""
+        _PAYLOAD_ := ""
+        switch {
+        case strings.Contains(api.Request, "GET http"):
+            tpl = getFuncTpl
+        case strings.Contains(api.Request, "POST http"):
+            tpl = postFuncTpl
+        case strings.Contains(api.Request, "POST(@media"):
+            tpl = postUploadFuncTpl
+            _UPLOAD_ = "media"
 
-			pattern := `POST\(@media\|field=(\S+)\) http`
-			reg := regexp.MustCompile(pattern)
-			matched := reg.FindAllStringSubmatch(api.Request, -1)
-			if matched != nil {
-				_FIELD_NAME_ = matched[0][1]
-				_PAYLOAD_ = ", payload []byte"
-			}
-		}
-		if len(api.GetParams) > 0 {
-			_GET_PARAMS_ = `, params url.Values`
-			//if strings.Contains(api.Request, "POST") {
-			//	_GET_PARAMS_ = `, ` + _GET_PARAMS_
-			//}
-			_GET_SUFFIX_PARAMS_ = `+ "?" + params.Encode()`
-		}
+            pattern := `POST\(@media\|field=(\S+)\) http`
+            reg := regexp.MustCompile(pattern)
+            matched := reg.FindAllStringSubmatch(api.Request, -1)
+            if matched != nil {
+                _FIELD_NAME_ = matched[0][1]
+                _PAYLOAD_ = ", payload []byte"
+            }
+        }
+        if len(api.GetParams) > 0 {
+            _GET_PARAMS_ = `, params url.Values`
+            // if strings.Contains(api.Request, "POST") {
+            //	_GET_PARAMS_ = `, ` + _GET_PARAMS_
+            // }
+            _GET_SUFFIX_PARAMS_ = `+ "?" + params.Encode()`
+        }
 
-		split := strings.Split(api.Request, " ")
-		parseUrl, _ := url.Parse(split[1])
+        split := strings.Split(api.Request, " ")
+        parseUrl, _ := url.Parse(split[1])
 
-		if api.FuncName == "" {
-			_FUNC_NAME_ = strcase.ToCamel(path.Base(parseUrl.Path))
-		} else {
-			_FUNC_NAME_ = api.FuncName
-		}
+        if api.FuncName == "" {
+            _FUNC_NAME_ = strcase.ToCamel(path.Base(parseUrl.Path))
+        } else {
+            _FUNC_NAME_ = api.FuncName
+        }
 
-		isTplApi := false
-		if (group.Package == "material" && api.FuncName == "Get") || group.Package == "material" && api.FuncName == "Jssdk" {
-			file, err := ioutil.ReadFile("tpl/" + group.Package + "." + api.FuncName + ".tpl")
-			if err != nil {
-				continue
-			}
-			tpl = commentTpl + string(file)
-			isTplApi = true
-		}
-		tpl = strings.ReplaceAll(tpl, "_TITLE_", api.Name)
-		tpl = strings.ReplaceAll(tpl, "_DESCRIPTION_", api.Description)
-		tpl = strings.ReplaceAll(tpl, "_REQUEST_", api.Request)
-		tpl = strings.ReplaceAll(tpl, "_SEE_", api.See)
-		tpl = strings.ReplaceAll(tpl, "_FUNC_NAME_", _FUNC_NAME_)
-		tpl = strings.ReplaceAll(tpl, "_UPLOAD_", _UPLOAD_)
-		tpl = strings.ReplaceAll(tpl, "_GET_PARAMS_", _GET_PARAMS_)
-		tpl = strings.ReplaceAll(tpl, "_GET_SUFFIX_PARAMS_", _GET_SUFFIX_PARAMS_)
-		if _FIELD_NAME_ != "" {
-			_FIELDS_ = strings.ReplaceAll(fieldTpl, "_FIELD_NAME_", _FIELD_NAME_)
-		}
-		tpl = strings.ReplaceAll(tpl, "_FIELDS_", _FIELDS_)
-		tpl = strings.ReplaceAll(tpl, "_PAYLOAD_", _PAYLOAD_)
+        isTplApi := false
+        if (group.Package == "material" && api.FuncName == "Get") || group.Package == "material" && api.FuncName == "Jssdk" {
+            file, err := ioutil.ReadFile("tpl/" + group.Package + "." + api.FuncName + ".tpl")
+            if err != nil {
+                continue
+            }
+            tpl = commentTpl + string(file)
+            isTplApi = true
+        }
+        tpl = strings.ReplaceAll(tpl, "_TITLE_", api.Name)
+        tpl = strings.ReplaceAll(tpl, "_DESCRIPTION_", api.Description)
+        tpl = strings.ReplaceAll(tpl, "_REQUEST_", api.Request)
+        tpl = strings.ReplaceAll(tpl, "_SEE_", api.See)
+        tpl = strings.ReplaceAll(tpl, "_FUNC_NAME_", _FUNC_NAME_)
+        tpl = strings.ReplaceAll(tpl, "_UPLOAD_", _UPLOAD_)
+        tpl = strings.ReplaceAll(tpl, "_GET_PARAMS_", _GET_PARAMS_)
+        tpl = strings.ReplaceAll(tpl, "_GET_SUFFIX_PARAMS_", _GET_SUFFIX_PARAMS_)
+        if _FIELD_NAME_ != "" {
+            _FIELDS_ = strings.ReplaceAll(fieldTpl, "_FIELD_NAME_", _FIELD_NAME_)
+        }
+        tpl = strings.ReplaceAll(tpl, "_FIELDS_", _FIELDS_)
+        tpl = strings.ReplaceAll(tpl, "_PAYLOAD_", _PAYLOAD_)
 
-		funcs = append(funcs, tpl)
+        funcs = append(funcs, tpl)
 
-		tpl = strings.ReplaceAll(constTpl, "_FUNC_NAME_", _FUNC_NAME_)
-		tpl = strings.ReplaceAll(tpl, "_API_PATH_", parseUrl.Path)
+        tpl = strings.ReplaceAll(constTpl, "_FUNC_NAME_", _FUNC_NAME_)
+        tpl = strings.ReplaceAll(tpl, "_API_PATH_", parseUrl.Path)
 
-		consts = append(consts, tpl)
+        consts = append(consts, tpl)
 
-		if isTplApi { // 不用 test case
-			continue
-		}
+        if isTplApi { // 不用 test case
+            continue
+        }
 
-		// TestFunc
-		_TEST_ARGS_STRUCT_ := ""
-		switch {
-		case strings.Contains(api.Request, "GET http"):
-			_TEST_ARGS_STRUCT_ = `ctx *corporation.App , ` + _GET_PARAMS_
-		case strings.Contains(api.Request, "POST http"):
-			_TEST_ARGS_STRUCT_ = `ctx *corporation.App , payload []byte`
-			if _GET_PARAMS_ != "" {
-				_TEST_ARGS_STRUCT_ += `,` + _GET_PARAMS_
-			}
-		case strings.Contains(api.Request, "POST(@media"):
-			_TEST_ARGS_STRUCT_ = `ctx *corporation.App , ` + _UPLOAD_ + ` string` + _PAYLOAD_ + _GET_PARAMS_
-		}
-		_TEST_ARGS_STRUCT_ = strings.ReplaceAll(_TEST_ARGS_STRUCT_, ",", "\n")
+        // TestFunc
+        _TEST_ARGS_STRUCT_ := ""
+        switch {
+        case strings.Contains(api.Request, "GET http"):
+            _TEST_ARGS_STRUCT_ = `ctx *corporation.App , ` + _GET_PARAMS_
+        case strings.Contains(api.Request, "POST http"):
+            _TEST_ARGS_STRUCT_ = `ctx *corporation.App , payload []byte`
+            if _GET_PARAMS_ != "" {
+                _TEST_ARGS_STRUCT_ += `,` + _GET_PARAMS_
+            }
+        case strings.Contains(api.Request, "POST(@media"):
+            _TEST_ARGS_STRUCT_ = `ctx *corporation.App , ` + _UPLOAD_ + ` string` + _PAYLOAD_ + _GET_PARAMS_
+        }
+        _TEST_ARGS_STRUCT_ = strings.ReplaceAll(_TEST_ARGS_STRUCT_, ",", "\n")
 
-		_TEST_FUNC_SIGNATURE_ := ""
-		_EXAMPLE_ARGS_STMT_ := ""
-		if strings.TrimSpace(_TEST_ARGS_STRUCT_) != "" {
-			signatures := strings.Split(_TEST_ARGS_STRUCT_, "\n")
-			paramNames := []string{}
-			exampleStmt := []string{}
-			for _, signature := range signatures {
-				signature = strings.TrimSpace(signature)
-				tmp := strings.Split(signature, " ")
-				//fmt.Println(tmp)
-				if len(tmp[0]) > 0 {
-					paramNames = append(paramNames, "tt.args."+tmp[0])
+        _TEST_FUNC_SIGNATURE_ := ""
+        _EXAMPLE_ARGS_STMT_ := ""
+        if strings.TrimSpace(_TEST_ARGS_STRUCT_) != "" {
+            signatures := strings.Split(_TEST_ARGS_STRUCT_, "\n")
+            paramNames := []string{}
+            exampleStmt := []string{}
+            for _, signature := range signatures {
+                signature = strings.TrimSpace(signature)
+                tmp := strings.Split(signature, " ")
+                // fmt.Println(tmp)
+                if len(tmp[0]) > 0 {
+                    paramNames = append(paramNames, "tt.args."+tmp[0])
 
-					switch tmp[1] {
-					case `[]byte`:
-						exampleStmt = append(exampleStmt, tmp[0]+" := []byte(\"{}\")")
-					case `string`:
-						exampleStmt = append(exampleStmt, tmp[0]+" := \"\"")
-					case `url.Values`:
-						exampleStmt = append(exampleStmt, tmp[0]+" := url.Values{}")
-					}
-				}
-			}
-			_TEST_FUNC_SIGNATURE_ = strings.Join(paramNames, ",")
-			_EXAMPLE_ARGS_STMT_ = strings.Join(exampleStmt, "\n")
-		}
+                    switch tmp[1] {
+                    case `[]byte`:
+                        exampleStmt = append(exampleStmt, tmp[0]+" := []byte(\"{}\")")
+                    case `string`:
+                        exampleStmt = append(exampleStmt, tmp[0]+" := \"\"")
+                    case `url.Values`:
+                        exampleStmt = append(exampleStmt, tmp[0]+" := url.Values{}")
+                    }
+                }
+            }
+            _TEST_FUNC_SIGNATURE_ = strings.Join(paramNames, ",")
+            _EXAMPLE_ARGS_STMT_ = strings.Join(exampleStmt, "\n")
+        }
 
-		tpl = strings.ReplaceAll(testFuncTpl, "_FUNC_NAME_", _FUNC_NAME_)
-		tpl = strings.ReplaceAll(tpl, "_TEST_ARGS_STRUCT_", _TEST_ARGS_STRUCT_)
-		tpl = strings.ReplaceAll(tpl, "_TEST_FUNC_SIGNATURE_", _TEST_FUNC_SIGNATURE_)
-		testFuncs = append(testFuncs, tpl)
+        tpl = strings.ReplaceAll(testFuncTpl, "_FUNC_NAME_", _FUNC_NAME_)
+        tpl = strings.ReplaceAll(tpl, "_TEST_ARGS_STRUCT_", _TEST_ARGS_STRUCT_)
+        tpl = strings.ReplaceAll(tpl, "_TEST_FUNC_SIGNATURE_", _TEST_FUNC_SIGNATURE_)
+        testFuncs = append(testFuncs, tpl)
 
-		//Example
-		tpl = strings.ReplaceAll(exampleFuncTpl, "_FUNC_NAME_", _FUNC_NAME_)
-		tpl = strings.ReplaceAll(tpl, "_PACKAGE_", path.Base(group.Package))
-		tpl = strings.ReplaceAll(tpl, "_TEST_FUNC_SIGNATURE_", strings.ReplaceAll(_TEST_FUNC_SIGNATURE_, "tt.args.", ""))
-		tpl = strings.ReplaceAll(tpl, "_EXAMPLE_ARGS_STMT_", _EXAMPLE_ARGS_STMT_)
-		exampleFuncs = append(exampleFuncs, tpl)
+        // Example
+        tpl = strings.ReplaceAll(exampleFuncTpl, "_FUNC_NAME_", _FUNC_NAME_)
+        tpl = strings.ReplaceAll(tpl, "_PACKAGE_", path.Base(group.Package))
+        tpl = strings.ReplaceAll(tpl, "_TEST_FUNC_SIGNATURE_", strings.ReplaceAll(_TEST_FUNC_SIGNATURE_, "tt.args.", ""))
+        tpl = strings.ReplaceAll(tpl, "_EXAMPLE_ARGS_STMT_", _EXAMPLE_ARGS_STMT_)
+        exampleFuncs = append(exampleFuncs, tpl)
 
-	}
+    }
 
-	fileContent := fmt.Sprintf(fileTpl, path.Base(group.Package), group.Name, path.Base(group.Package), strings.Join(consts, ``), strings.Join(funcs, ``))
-	filename := "./../apis/" + group.Package + "/" + path.Base(group.Package) + ".go"
-	_ = os.MkdirAll(path.Dir(filename), 0644)
-	ioutil.WriteFile(filename, []byte(fileContent), 0644)
+    fileContent := fmt.Sprintf(fileTpl, path.Base(group.Package), group.Name, path.Base(group.Package), strings.Join(consts, ``), strings.Join(funcs, ``))
+    filename := "./../apis/" + group.Package + "/" + path.Base(group.Package) + ".go"
+    _ = os.MkdirAll(path.Dir(filename), 0644)
+    ioutil.WriteFile(filename, []byte(fileContent), 0644)
 
-	// output Test
-	testFileContent := fmt.Sprintf(testFileTpl, path.Base(group.Package), strings.Join(testFuncs, ``))
-	//fmt.Println(testFileContent)
-	ioutil.WriteFile("./../apis/"+group.Package+"/"+path.Base(group.Package)+"_test.go", []byte(testFileContent), 0644)
+    // output Test
+    testFileContent := fmt.Sprintf(testFileTpl, path.Base(group.Package), strings.Join(testFuncs, ``))
+    // fmt.Println(testFileContent)
+    ioutil.WriteFile("./../apis/"+group.Package+"/"+path.Base(group.Package)+"_test.go", []byte(testFileContent), 0644)
 
-	// output example
-	exampleFileContent := fmt.Sprintf(exampleFileTpl, path.Base(group.Package), strings.Join(exampleFuncs, ``))
-	//fmt.Println(testFileContent)
-	ioutil.WriteFile("./../apis/"+group.Package+"/example_"+path.Base(group.Package)+"_test.go", []byte(exampleFileContent), 0644)
+    // output example
+    exampleFileContent := fmt.Sprintf(exampleFileTpl, path.Base(group.Package), strings.Join(exampleFuncs, ``))
+    // fmt.Println(testFileContent)
+    ioutil.WriteFile("./../apis/"+group.Package+"/example_"+path.Base(group.Package)+"_test.go", []byte(exampleFileContent), 0644)
 
 }
 

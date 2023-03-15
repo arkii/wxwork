@@ -15,44 +15,44 @@
 package invoice_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/invoice"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/invoice"
 )
 
 func ExampleGetInvoiceInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := invoice.GetInvoiceInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := invoice.GetInvoiceInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleUpdateInvoiceStatus() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := invoice.UpdateInvoiceStatus(ctx, payload)
+    payload := []byte("{}")
+    resp, err := invoice.UpdateInvoiceStatus(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleUpdateStatusBatch() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := invoice.UpdateStatusBatch(ctx, payload)
+    payload := []byte("{}")
+    resp, err := invoice.UpdateStatusBatch(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetInvoiceInfoBatch() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := invoice.GetInvoiceInfoBatch(ctx, payload)
+    payload := []byte("{}")
+    resp, err := invoice.GetInvoiceInfoBatch(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

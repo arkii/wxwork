@@ -16,17 +16,17 @@
 package payment
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiAddMerchant    = "/cgi-bin/externalpay/addmerchant"
-	apiGetMerchant    = "/cgi-bin/externalpay/getmerchant"
-	apiDelMerchant    = "/cgi-bin/externalpay/delmerchant"
-	apiSetMchUseScope = "/cgi-bin/externalpay/set_mch_use_scope"
-	apiGetBillList    = "/cgi-bin/externalpay/get_bill_list"
+    apiAddMerchant    = "/cgi-bin/externalpay/addmerchant"
+    apiGetMerchant    = "/cgi-bin/externalpay/getmerchant"
+    apiDelMerchant    = "/cgi-bin/externalpay/delmerchant"
+    apiSetMchUseScope = "/cgi-bin/externalpay/set_mch_use_scope"
+    apiGetBillList    = "/cgi-bin/externalpay/get_bill_list"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93666
 POST https://qyapi.weixin.qq.com/cgi-bin/externalpay/addmerchant?access_token=ACCESS_TOKEN
 */
 func AddMerchant(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93666
 POST https://qyapi.weixin.qq.com/cgi-bin/externalpay/getmerchant?access_token=ACCESS_TOKEN
 */
 func GetMerchant(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93666
 POST https://qyapi.weixin.qq.com/cgi-bin/externalpay/delmerchant?access_token=ACCESS_TOKEN
 */
 func DelMerchant(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDelMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDelMerchant, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93666
 POST https://qyapi.weixin.qq.com/cgi-bin/externalpay/set_mch_use_scope?access_token=ACCESS_TOKEN
 */
 func SetMchUseScope(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetMchUseScope, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetMchUseScope, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93667
 POST https://qyapi.weixin.qq.com/cgi-bin/externalpay/get_bill_list?access_token=ACCESS_TOKEN
 */
 func GetBillList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetBillList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetBillList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

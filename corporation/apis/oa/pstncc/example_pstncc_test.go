@@ -15,26 +15,26 @@
 package pstncc_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/oa/pstncc"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/oa/pstncc"
 )
 
 func ExampleCall() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := pstncc.Call(ctx, payload)
+    payload := []byte("{}")
+    resp, err := pstncc.Call(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetStates() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := pstncc.GetStates(ctx, payload)
+    payload := []byte("{}")
+    resp, err := pstncc.GetStates(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

@@ -15,28 +15,28 @@
 package material_test
 
 import (
-	"fmt"
-	"net/url"
+    "fmt"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/material"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/material"
 )
 
 func ExampleUpload() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	media := ""
-	params := url.Values{}
-	resp, err := material.Upload(ctx, media, params)
+    media := ""
+    params := url.Values{}
+    resp, err := material.Upload(ctx, media, params)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleUploadImg() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	media := ""
-	resp, err := material.UploadImg(ctx, media)
+    media := ""
+    resp, err := material.UploadImg(ctx, media)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

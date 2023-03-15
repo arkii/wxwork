@@ -15,80 +15,80 @@
 package checkin_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/oa/checkin"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/oa/checkin"
 )
 
 func ExampleGetCorpCheckinOption() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCorpCheckinOption(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCorpCheckinOption(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCheckinOption() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCheckinOption(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCheckinOption(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCheckinData() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCheckinData(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCheckinData(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCheckinDayData() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCheckinDayData(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCheckinDayData(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCheckinMonthData() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCheckinMonthData(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCheckinMonthData(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCheckinScheduleList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.GetCheckinScheduleList(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.GetCheckinScheduleList(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleSetCheckinScheduleList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.SetCheckinScheduleList(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.SetCheckinScheduleList(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleAddCheckinUserFace() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := checkin.AddCheckinUserFace(ctx, payload)
+    payload := []byte("{}")
+    resp, err := checkin.AddCheckinUserFace(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

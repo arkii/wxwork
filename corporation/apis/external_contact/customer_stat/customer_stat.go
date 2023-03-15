@@ -16,15 +16,15 @@
 package customer_stat
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetUserBehaviorData = "/cgi-bin/externalcontact/get_user_behavior_data"
-	apiStatistic           = "/cgi-bin/externalcontact/groupchat/statistic"
-	apiStatisticGroupByDay = "/cgi-bin/externalcontact/groupchat/statistic_group_by_day"
+    apiGetUserBehaviorData = "/cgi-bin/externalcontact/get_user_behavior_data"
+    apiStatistic           = "/cgi-bin/externalcontact/groupchat/statistic"
+    apiStatisticGroupByDay = "/cgi-bin/externalcontact/groupchat/statistic_group_by_day"
 )
 
 /*
@@ -37,7 +37,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92132
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_user_behavior_data?access_token=ACCESS_TOKEN
 */
 func GetUserBehaviorData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetUserBehaviorData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetUserBehaviorData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -50,7 +50,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92133
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/groupchat/statistic?access_token=ACCESS_TOKEN
 */
 func Statistic(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiStatistic, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiStatistic, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -63,5 +63,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92133
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/groupchat/statistic_group_by_day?access_token=ACCESS_TOKEN
 */
 func StatisticGroupByDay(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiStatisticGroupByDay, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiStatisticGroupByDay, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

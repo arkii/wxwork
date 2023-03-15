@@ -15,17 +15,17 @@
 package custom_app_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/oa/custom_app"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/oa/custom_app"
 )
 
 func ExampleGetOpenApprovalData() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := custom_app.GetOpenApprovalData(ctx, payload)
+    payload := []byte("{}")
+    resp, err := custom_app.GetOpenApprovalData(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

@@ -15,44 +15,44 @@
 package msgaudit_test
 
 import (
-	"fmt"
-	"net/url"
+    "fmt"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/msgaudit"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/msgaudit"
 )
 
 func ExampleGetRobotInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	params := url.Values{}
-	resp, err := msgaudit.GetRobotInfo(ctx, params)
+    params := url.Values{}
+    resp, err := msgaudit.GetRobotInfo(ctx, params)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetPermitUserList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	resp, err := msgaudit.GetPermitUserList(ctx)
+    resp, err := msgaudit.GetPermitUserList(ctx)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleCheckSingleAgree() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := msgaudit.CheckSingleAgree(ctx, payload)
+    payload := []byte("{}")
+    resp, err := msgaudit.CheckSingleAgree(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGroupchatGet() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := msgaudit.GroupchatGet(ctx, payload)
+    payload := []byte("{}")
+    resp, err := msgaudit.GroupchatGet(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

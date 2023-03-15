@@ -15,44 +15,44 @@
 package health_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/school_app/health"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/school_app/health"
 )
 
 func ExampleGetHealthReportStat() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health.GetHealthReportStat(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health.GetHealthReportStat(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetReportJobids() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health.GetReportJobids(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health.GetReportJobids(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetReportJobInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health.GetReportJobInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health.GetReportJobInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetReportAnswer() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health.GetReportAnswer(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health.GetReportAnswer(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

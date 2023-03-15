@@ -16,15 +16,15 @@
 package journal
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetRecordList   = "/cgi-bin/oa/journal/get_record_list"
-	apiGetRecordDetail = "/cgi-bin/oa/journal/get_record_detail"
-	apiGetStatList     = "/cgi-bin/oa/journal/get_stat_list"
+    apiGetRecordList   = "/cgi-bin/oa/journal/get_record_list"
+    apiGetRecordDetail = "/cgi-bin/oa/journal/get_record_detail"
+    apiGetStatList     = "/cgi-bin/oa/journal/get_stat_list"
 )
 
 /*
@@ -37,7 +37,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93393
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/journal/get_record_list?access_token=ACCESS_TOKEN
 */
 func GetRecordList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetRecordList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetRecordList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -50,7 +50,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93394
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/journal/get_record_detail?access_token=ACCESS_TOKEN
 */
 func GetRecordDetail(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetRecordDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetRecordDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -63,5 +63,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93395
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/journal/get_stat_list?access_token=ACCESS_TOKEN
 */
 func GetStatList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetStatList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetStatList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

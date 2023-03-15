@@ -15,26 +15,26 @@
 package customer_group_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/external_contact/customer_group"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/external_contact/customer_group"
 )
 
 func ExampleList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_group.List(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_group.List(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGet() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_group.Get(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_group.Get(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

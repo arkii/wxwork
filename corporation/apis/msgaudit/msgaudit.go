@@ -16,17 +16,17 @@
 package msgaudit
 
 import (
-	"bytes"
-	"net/url"
+    "bytes"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetRobotInfo      = "/cgi-bin/msgaudit/get_robot_info"
-	apiGetPermitUserList = "/cgi-bin/msgaudit/get_permit_user_list"
-	apiCheckSingleAgree  = "/cgi-bin/msgaudit/check_single_agree"
-	apiGroupchatGet      = "/cgi-bin/msgaudit/groupchat/get"
+    apiGetRobotInfo      = "/cgi-bin/msgaudit/get_robot_info"
+    apiGetPermitUserList = "/cgi-bin/msgaudit/get_permit_user_list"
+    apiCheckSingleAgree  = "/cgi-bin/msgaudit/check_single_agree"
+    apiGroupchatGet      = "/cgi-bin/msgaudit/groupchat/get"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91774
 GET https://qyapi.weixin.qq.com/cgi-bin/msgaudit/get_robot_info?access_token=ACCESS_TOKEN&robot_id=ROBOT_ID
 */
 func GetRobotInfo(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetRobotInfo + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiGetRobotInfo + "?" + params.Encode())
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91614
 GET https://qyapi.weixin.qq.com/cgi-bin/msgaudit/get_permit_user_list?access_token=ACCESS_TOKEN
 */
 func GetPermitUserList(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetPermitUserList)
+    return ctx.Client.HTTPGet(apiGetPermitUserList)
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91782
 POST https://qyapi.weixin.qq.com/cgi-bin/msgaudit/check_single_agree?access_token=ACCESS_TOKEN
 */
 func CheckSingleAgree(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCheckSingleAgree, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCheckSingleAgree, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,5 +78,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92951
 POST https://qyapi.weixin.qq.com/cgi-bin/msgaudit/groupchat/get?access_token=ACCESS_TOKEN
 */
 func GroupchatGet(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupchatGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupchatGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

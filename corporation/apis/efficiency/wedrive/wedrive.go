@@ -16,32 +16,32 @@
 package wedrive
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiSpaceCreate  = "/cgi-bin/wedrive/space_create"
-	apiSpaceRename  = "/cgi-bin/wedrive/space_rename"
-	apiSpaceDismiss = "/cgi-bin/wedrive/space_dismiss"
-	apiSpaceInfo    = "/cgi-bin/wedrive/space_info"
-	apiSpaceAclAdd  = "/cgi-bin/wedrive/space_acl_add"
-	apiSpaceAclDel  = "/cgi-bin/wedrive/space_acl_del"
-	apiSpaceSetting = "/cgi-bin/wedrive/space_setting"
-	apiSpaceShare   = "/cgi-bin/wedrive/space_share"
-	apiFileList     = "/cgi-bin/wedrive/file_list"
-	apiFileUpload   = "/cgi-bin/wedrive/file_upload"
-	apiFileDownload = "/cgi-bin/wedrive/file_download"
-	apiFileCreate   = "/cgi-bin/wedrive/file_create"
-	apiFileRename   = "/cgi-bin/wedrive/file_rename"
-	apiFileMove     = "/cgi-bin/wedrive/file_move"
-	apiFileDelete   = "/cgi-bin/wedrive/file_delete"
-	apiFileInfo     = "/cgi-bin/wedrive/file_info"
-	apiFileAclAdd   = "/cgi-bin/wedrive/file_acl_add"
-	apiFileAclDel   = "/cgi-bin/wedrive/file_acl_del"
-	apiFileSetting  = "/cgi-bin/wedrive/file_setting"
-	apiFileShare    = "/cgi-bin/wedrive/file_share"
+    apiSpaceCreate  = "/cgi-bin/wedrive/space_create"
+    apiSpaceRename  = "/cgi-bin/wedrive/space_rename"
+    apiSpaceDismiss = "/cgi-bin/wedrive/space_dismiss"
+    apiSpaceInfo    = "/cgi-bin/wedrive/space_info"
+    apiSpaceAclAdd  = "/cgi-bin/wedrive/space_acl_add"
+    apiSpaceAclDel  = "/cgi-bin/wedrive/space_acl_del"
+    apiSpaceSetting = "/cgi-bin/wedrive/space_setting"
+    apiSpaceShare   = "/cgi-bin/wedrive/space_share"
+    apiFileList     = "/cgi-bin/wedrive/file_list"
+    apiFileUpload   = "/cgi-bin/wedrive/file_upload"
+    apiFileDownload = "/cgi-bin/wedrive/file_download"
+    apiFileCreate   = "/cgi-bin/wedrive/file_create"
+    apiFileRename   = "/cgi-bin/wedrive/file_rename"
+    apiFileMove     = "/cgi-bin/wedrive/file_move"
+    apiFileDelete   = "/cgi-bin/wedrive/file_delete"
+    apiFileInfo     = "/cgi-bin/wedrive/file_info"
+    apiFileAclAdd   = "/cgi-bin/wedrive/file_acl_add"
+    apiFileAclDel   = "/cgi-bin/wedrive/file_acl_del"
+    apiFileSetting  = "/cgi-bin/wedrive/file_setting"
+    apiFileShare    = "/cgi-bin/wedrive/file_share"
 )
 
 /*
@@ -54,7 +54,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93655
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_create?access_token=ACCESS_TOKEN
 */
 func SpaceCreate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -67,7 +67,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93655
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_rename?access_token=ACCESS_TOKEN
 */
 func SpaceRename(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceRename, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceRename, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -80,7 +80,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93655
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_dismiss?access_token=ACCESS_TOKEN
 */
 func SpaceDismiss(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceDismiss, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceDismiss, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -93,7 +93,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93655
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_info?access_token=ACCESS_TOKEN
 */
 func SpaceInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -106,7 +106,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93656
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_acl_add?access_token=ACCESS_TOKEN
 */
 func SpaceAclAdd(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceAclAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceAclAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -119,7 +119,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93656
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_acl_del?access_token=ACCESS_TOKEN
 */
 func SpaceAclDel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceAclDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceAclDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -132,7 +132,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93656
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_setting?access_token=ACCESS_TOKEN
 */
 func SpaceSetting(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceSetting, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceSetting, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -145,7 +145,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93656
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/space_share?access_token=ACCESS_TOKEN
 */
 func SpaceShare(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSpaceShare, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSpaceShare, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -158,7 +158,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_list?access_token=ACCESS_TOKEN
 */
 func FileList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -171,7 +171,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_upload?access_token=ACCESS_TOKEN
 */
 func FileUpload(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileUpload, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileUpload, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -184,7 +184,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_download?access_token=ACCESS_TOKEN
 */
 func FileDownload(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileDownload, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileDownload, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -197,7 +197,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_create?access_token=ACCESS_TOKEN
 */
 func FileCreate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -210,7 +210,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_rename?access_token=ACCESS_TOKEN
 */
 func FileRename(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileRename, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileRename, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -223,7 +223,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_move?access_token=ACCESS_TOKEN
 */
 func FileMove(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileMove, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileMove, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -236,7 +236,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_delete?access_token=ACCESS_TOKEN
 */
 func FileDelete(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileDelete, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileDelete, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -249,7 +249,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93657
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_info?access_token=ACCESS_TOKEN
 */
 func FileInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -262,7 +262,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93658
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_acl_add?access_token=ACCESS_TOKEN
 */
 func FileAclAdd(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileAclAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileAclAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -275,7 +275,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93658
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_acl_del?access_token=ACCESS_TOKEN
 */
 func FileAclDel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileAclDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileAclDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -288,7 +288,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93658
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_setting?access_token=ACCESS_TOKEN
 */
 func FileSetting(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileSetting, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileSetting, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -301,5 +301,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93658
 POST https://qyapi.weixin.qq.com/cgi-bin/wedrive/file_share?access_token=ACCESS_TOKEN
 */
 func FileShare(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiFileShare, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiFileShare, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

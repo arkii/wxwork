@@ -16,19 +16,19 @@
 package meeting_room
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiAdd            = "/cgi-bin/oa/meetingroom/add"
-	apiList           = "/cgi-bin/oa/meetingroom/list"
-	apiEdit           = "/cgi-bin/oa/meetingroom/edit"
-	apiDel            = "/cgi-bin/oa/meetingroom/del"
-	apiGetBookingInfo = "/cgi-bin/oa/meetingroom/get_booking_info"
-	apiBook           = "/cgi-bin/oa/meetingroom/book"
-	apiCancelBook     = "/cgi-bin/oa/meetingroom/cancel_book"
+    apiAdd            = "/cgi-bin/oa/meetingroom/add"
+    apiList           = "/cgi-bin/oa/meetingroom/list"
+    apiEdit           = "/cgi-bin/oa/meetingroom/edit"
+    apiDel            = "/cgi-bin/oa/meetingroom/del"
+    apiGetBookingInfo = "/cgi-bin/oa/meetingroom/get_booking_info"
+    apiBook           = "/cgi-bin/oa/meetingroom/book"
+    apiCancelBook     = "/cgi-bin/oa/meetingroom/cancel_book"
 )
 
 /*
@@ -41,7 +41,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92793
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/add?access_token=ACCESS_TOKEN
 */
 func Add(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -54,7 +54,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92793
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/list?access_token=ACCESS_TOKEN
 */
 func List(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -67,7 +67,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92793
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/edit?access_token=ACCESS_TOKEN
 */
 func Edit(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiEdit, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiEdit, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -80,7 +80,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92793
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/del?access_token=ACCESS_TOKEN
 */
 func Del(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -93,7 +93,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92794
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/get_booking_info?access_token=ACCESS_TOKEN
 */
 func GetBookingInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetBookingInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetBookingInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -106,7 +106,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92794
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/book?access_token=ACCESS_TOKEN
 */
 func Book(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiBook, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiBook, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -119,5 +119,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92794
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/meetingroom/cancel_book?access_token=ACCESS_TOKEN
 */
 func CancelBook(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCancelBook, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCancelBook, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -15,11 +15,11 @@
 // Package util 开发辅助
 package util
 
-import "github.com/fastwego/wxwork/corporation"
+import "github.com/arkii/wxwork/corporation"
 
 const (
-	apiGetApiDomainIp = "/cgi-bin/get_api_domain_ip"
-	apiGetCallbackIp  = "/cgi-bin/getcallbackip"
+    apiGetApiDomainIp = "/cgi-bin/get_api_domain_ip"
+    apiGetCallbackIp  = "/cgi-bin/getcallbackip"
 )
 
 /*
@@ -32,7 +32,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92520
 GET https://qyapi.weixin.qq.com/cgi-bin/get_api_domain_ip?access_token=ACCESS_TOKEN
 */
 func GetApiDomainIp(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetApiDomainIp)
+    return ctx.Client.HTTPGet(apiGetApiDomainIp)
 }
 
 /*
@@ -45,5 +45,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90238
 GET https://qyapi.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN
 */
 func GetCallbackIp(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetCallbackIp)
+    return ctx.Client.HTTPGet(apiGetCallbackIp)
 }

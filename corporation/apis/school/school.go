@@ -16,17 +16,17 @@
 package school
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetSubscribeQrCode = "/cgi-bin/externalcontact/get_subscribe_qr_code"
-	apiSetSubscribeMode   = "/cgi-bin/externalcontact/set_subscribe_mode"
-	apiGetSubscribeMode   = "/cgi-bin/externalcontact/get_subscribe_mode"
-	apiSend               = "/cgi-bin/externalcontact/message/send"
-	apiConvertToOpenid    = "/cgi-bin/externalcontact/convert_to_openid"
+    apiGetSubscribeQrCode = "/cgi-bin/externalcontact/get_subscribe_qr_code"
+    apiSetSubscribeMode   = "/cgi-bin/externalcontact/set_subscribe_mode"
+    apiGetSubscribeMode   = "/cgi-bin/externalcontact/get_subscribe_mode"
+    apiSend               = "/cgi-bin/externalcontact/message/send"
+    apiConvertToOpenid    = "/cgi-bin/externalcontact/convert_to_openid"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92320
 GET https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_subscribe_qr_code?access_token=ACCESS_TOKEN
 */
 func GetSubscribeQrCode(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetSubscribeQrCode)
+    return ctx.Client.HTTPGet(apiGetSubscribeQrCode)
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92318
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/set_subscribe_mode?access_token=ACCESS_TOKEN
 */
 func SetSubscribeMode(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetSubscribeMode, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetSubscribeMode, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92318
 GET https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_subscribe_mode?access_token=ACCESS_TOKEN
 */
 func GetSubscribeMode(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetSubscribeMode)
+    return ctx.Client.HTTPGet(apiGetSubscribeMode)
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92321
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/message/send?access_token=ACCESS_TOKEN
 */
 func Send(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSend, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSend, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92323
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/convert_to_openid?access_token=ACCESS_TOKEN
 */
 func ConvertToOpenid(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiConvertToOpenid, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiConvertToOpenid, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

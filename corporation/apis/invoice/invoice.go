@@ -16,16 +16,16 @@
 package invoice
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetInvoiceInfo      = "/cgi-bin/card/invoice/reimburse/getinvoiceinfo"
-	apiUpdateInvoiceStatus = "/cgi-bin/card/invoice/reimburse/updateinvoicestatus"
-	apiUpdateStatusBatch   = "/cgi-bin/card/invoice/reimburse/updatestatusbatch"
-	apiGetInvoiceInfoBatch = "/cgi-bin/card/invoice/reimburse/getinvoiceinfobatch"
+    apiGetInvoiceInfo      = "/cgi-bin/card/invoice/reimburse/getinvoiceinfo"
+    apiUpdateInvoiceStatus = "/cgi-bin/card/invoice/reimburse/updateinvoicestatus"
+    apiUpdateStatusBatch   = "/cgi-bin/card/invoice/reimburse/updatestatusbatch"
+    apiGetInvoiceInfoBatch = "/cgi-bin/card/invoice/reimburse/getinvoiceinfobatch"
 )
 
 /*
@@ -38,7 +38,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90284
 POST https://qyapi.weixin.qq.com/cgi-bin/card/invoice/reimburse/getinvoiceinfo?access_token=ACCESS_TOKEN
 */
 func GetInvoiceInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetInvoiceInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetInvoiceInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -51,7 +51,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90285
 POST https://qyapi.weixin.qq.com/cgi-bin/card/invoice/reimburse/updateinvoicestatus?access_token=ACCESS_TOKEN
 */
 func UpdateInvoiceStatus(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdateInvoiceStatus, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdateInvoiceStatus, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -64,7 +64,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90286
 POST https://qyapi.weixin.qq.com/cgi-bin/card/invoice/reimburse/updatestatusbatch?access_token=ACCESS_TOKEN
 */
 func UpdateStatusBatch(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdateStatusBatch, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdateStatusBatch, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -77,5 +77,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90287
 POST https://qyapi.weixin.qq.com/cgi-bin/card/invoice/reimburse/getinvoiceinfobatch?access_token=ACCESS_TOKEN
 */
 func GetInvoiceInfoBatch(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetInvoiceInfoBatch, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetInvoiceInfoBatch, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

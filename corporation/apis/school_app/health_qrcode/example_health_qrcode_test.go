@@ -15,35 +15,35 @@
 package health_qrcode_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/school_app/health_qrcode"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/school_app/health_qrcode"
 )
 
 func ExampleGetTeacherCustomizeHealthInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health_qrcode.GetTeacherCustomizeHealthInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health_qrcode.GetTeacherCustomizeHealthInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetStudentCustomizeHealthInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health_qrcode.GetStudentCustomizeHealthInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health_qrcode.GetStudentCustomizeHealthInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetHealthQrcode() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := health_qrcode.GetHealthQrcode(ctx, payload)
+    payload := []byte("{}")
+    resp, err := health_qrcode.GetHealthQrcode(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

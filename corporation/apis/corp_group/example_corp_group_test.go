@@ -15,35 +15,35 @@
 package corp_group_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/corp_group"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/corp_group"
 )
 
 func ExampleListAppShareInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := corp_group.ListAppShareInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := corp_group.ListAppShareInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetToken() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := corp_group.GetToken(ctx, payload)
+    payload := []byte("{}")
+    resp, err := corp_group.GetToken(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleTransferSession() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := corp_group.TransferSession(ctx, payload)
+    payload := []byte("{}")
+    resp, err := corp_group.TransferSession(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

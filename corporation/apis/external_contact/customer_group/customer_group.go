@@ -16,14 +16,14 @@
 package customer_group
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiList = "/cgi-bin/externalcontact/groupchat/list"
-	apiGet  = "/cgi-bin/externalcontact/groupchat/get"
+    apiList = "/cgi-bin/externalcontact/groupchat/list"
+    apiGet  = "/cgi-bin/externalcontact/groupchat/get"
 )
 
 /*
@@ -36,7 +36,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92120
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/groupchat/list?access_token=ACCESS_TOKEN
 */
 func List(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -49,5 +49,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92122
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/groupchat/get?access_token=ACCESS_TOKEN
 */
 func Get(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -15,17 +15,17 @@
 package call_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/efficiency/call"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/efficiency/call"
 )
 
 func ExampleGetDialRecord() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := call.GetDialRecord(ctx, payload)
+    payload := []byte("{}")
+    resp, err := call.GetDialRecord(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

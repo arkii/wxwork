@@ -16,17 +16,17 @@
 package linked_corp
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetPermList    = "/cgi-bin/linkedcorp/agent/get_perm_list"
-	apiGet            = "/cgi-bin/linkedcorp/user/get"
-	apiSimpleList     = "/cgi-bin/linkedcorp/user/simplelist"
-	apiUserList       = "/cgi-bin/linkedcorp/user/list"
-	apiDepartmentList = "/cgi-bin/linkedcorp/department/list"
+    apiGetPermList    = "/cgi-bin/linkedcorp/agent/get_perm_list"
+    apiGet            = "/cgi-bin/linkedcorp/user/get"
+    apiSimpleList     = "/cgi-bin/linkedcorp/user/simplelist"
+    apiUserList       = "/cgi-bin/linkedcorp/user/list"
+    apiDepartmentList = "/cgi-bin/linkedcorp/department/list"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93172
 POST https://qyapi.weixin.qq.com/cgi-bin/linkedcorp/agent/get_perm_list?access_token=ACCESS_TOKEN
 */
 func GetPermList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetPermList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetPermList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93171
 POST https://qyapi.weixin.qq.com/cgi-bin/linkedcorp/user/get?access_token=ACCESS_TOKEN
 */
 func Get(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93168
 POST https://qyapi.weixin.qq.com/cgi-bin/linkedcorp/user/simplelist?access_token=ACCESS_TOKEN
 */
 func SimpleList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSimpleList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSimpleList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93169
 POST https://qyapi.weixin.qq.com/cgi-bin/linkedcorp/user/list?access_token=ACCESS_TOKEN
 */
 func UserList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUserList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUserList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93170
 POST https://qyapi.weixin.qq.com/cgi-bin/linkedcorp/department/list?access_token=ACCESS_TOKEN
 */
 func DepartmentList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDepartmentList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDepartmentList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

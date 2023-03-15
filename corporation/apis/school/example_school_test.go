@@ -15,51 +15,51 @@
 package school_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/school"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/school"
 )
 
 func ExampleGetSubscribeQrCode() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	resp, err := school.GetSubscribeQrCode(ctx)
+    resp, err := school.GetSubscribeQrCode(ctx)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleSetSubscribeMode() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := school.SetSubscribeMode(ctx, payload)
+    payload := []byte("{}")
+    resp, err := school.SetSubscribeMode(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetSubscribeMode() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	resp, err := school.GetSubscribeMode(ctx)
+    resp, err := school.GetSubscribeMode(ctx)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleSend() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := school.Send(ctx, payload)
+    payload := []byte("{}")
+    resp, err := school.Send(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleConvertToOpenid() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := school.ConvertToOpenid(ctx, payload)
+    payload := []byte("{}")
+    resp, err := school.ConvertToOpenid(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

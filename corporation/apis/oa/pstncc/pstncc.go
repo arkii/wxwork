@@ -16,14 +16,14 @@
 package pstncc
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCall      = "/cgi-bin/pstncc/call"
-	apiGetStates = "/cgi-bin/pstncc/getstates"
+    apiCall      = "/cgi-bin/pstncc/call"
+    apiGetStates = "/cgi-bin/pstncc/getstates"
 )
 
 /*
@@ -36,7 +36,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91627
 POST https://qyapi.weixin.qq.com/cgi-bin/pstncc/call?access_token=ACCESS_TOKEN
 */
 func Call(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCall, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCall, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -49,5 +49,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91628
 POST https://qyapi.weixin.qq.com/cgi-bin/pstncc/getstates?access_token=ACCESS_TOKEN
 */
 func GetStates(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetStates, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetStates, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

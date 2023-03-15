@@ -15,54 +15,54 @@
 package living_test
 
 import (
-	"fmt"
-	"net/url"
+    "fmt"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/school_app/living"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/school_app/living"
 )
 
 func ExampleGetUserAllLivingId() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := living.GetUserAllLivingId(ctx, payload)
+    payload := []byte("{}")
+    resp, err := living.GetUserAllLivingId(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetLivingInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	params := url.Values{}
-	resp, err := living.GetLivingInfo(ctx, params)
+    params := url.Values{}
+    resp, err := living.GetLivingInfo(ctx, params)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetWatchStat() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := living.GetWatchStat(ctx, payload)
+    payload := []byte("{}")
+    resp, err := living.GetWatchStat(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetUnwatchStat() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := living.GetUnwatchStat(ctx, payload)
+    payload := []byte("{}")
+    resp, err := living.GetUnwatchStat(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleDeleteReplayData() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := living.DeleteReplayData(ctx, payload)
+    payload := []byte("{}")
+    resp, err := living.DeleteReplayData(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

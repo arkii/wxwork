@@ -16,18 +16,18 @@
 package customer_service
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetFollowUserList = "/cgi-bin/externalcontact/get_follow_user_list"
-	apiAddContactWay     = "/cgi-bin/externalcontact/add_contact_way"
-	apiGetContactWay     = "/cgi-bin/externalcontact/get_contact_way"
-	apiUpdateContactWay  = "/cgi-bin/externalcontact/update_contact_way"
-	apiDelContactWay     = "/cgi-bin/externalcontact/del_contact_way"
-	apiCloseTempChat     = "/cgi-bin/externalcontact/close_temp_chat"
+    apiGetFollowUserList = "/cgi-bin/externalcontact/get_follow_user_list"
+    apiAddContactWay     = "/cgi-bin/externalcontact/add_contact_way"
+    apiGetContactWay     = "/cgi-bin/externalcontact/get_contact_way"
+    apiUpdateContactWay  = "/cgi-bin/externalcontact/update_contact_way"
+    apiDelContactWay     = "/cgi-bin/externalcontact/del_contact_way"
+    apiCloseTempChat     = "/cgi-bin/externalcontact/close_temp_chat"
 )
 
 /*
@@ -40,7 +40,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92571
 GET https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_follow_user_list?access_token=ACCESS_TOKEN
 */
 func GetFollowUserList(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetFollowUserList)
+    return ctx.Client.HTTPGet(apiGetFollowUserList)
 }
 
 /*
@@ -53,7 +53,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92572
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_contact_way?access_token=ACCESS_TOKEN
 */
 func AddContactWay(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -66,7 +66,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92572
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_contact_way?access_token=ACCESS_TOKEN
 */
 func GetContactWay(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -79,7 +79,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92572
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/update_contact_way?access_token=ACCESS_TOKEN
 */
 func UpdateContactWay(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdateContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdateContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -92,7 +92,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92572
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/del_contact_way?access_token=ACCESS_TOKEN
 */
 func DelContactWay(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDelContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDelContactWay, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -105,5 +105,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92572
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/close_temp_chat?access_token=ACCESS_TOKEN
 */
 func CloseTempChat(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCloseTempChat, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCloseTempChat, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

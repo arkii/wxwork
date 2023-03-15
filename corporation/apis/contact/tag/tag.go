@@ -16,20 +16,20 @@
 package tag
 
 import (
-	"bytes"
-	"net/url"
+    "bytes"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCreate      = "/cgi-bin/tag/create"
-	apiUpdate      = "/cgi-bin/tag/update"
-	apiDelete      = "/cgi-bin/tag/delete"
-	apiGet         = "/cgi-bin/tag/get"
-	apiAddTagUsers = "/cgi-bin/tag/addtagusers"
-	apiDelTagUsers = "/cgi-bin/tag/deltagusers"
-	apiList        = "/cgi-bin/tag/list"
+    apiCreate      = "/cgi-bin/tag/create"
+    apiUpdate      = "/cgi-bin/tag/update"
+    apiDelete      = "/cgi-bin/tag/delete"
+    apiGet         = "/cgi-bin/tag/get"
+    apiAddTagUsers = "/cgi-bin/tag/addtagusers"
+    apiDelTagUsers = "/cgi-bin/tag/deltagusers"
+    apiList        = "/cgi-bin/tag/list"
 )
 
 /*
@@ -42,7 +42,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90210
 POST https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token=ACCESS_TOKEN
 */
 func Create(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -55,7 +55,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90211
 POST https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token=ACCESS_TOKEN
 */
 func Update(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -68,7 +68,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90212
 GET https://qyapi.weixin.qq.com/cgi-bin/tag/delete?access_token=ACCESS_TOKEN&tagid=TAGID
 */
 func Delete(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiDelete + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiDelete + "?" + params.Encode())
 }
 
 /*
@@ -81,7 +81,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90213
 GET https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token=ACCESS_TOKEN&tagid=TAGID
 */
 func Get(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGet + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiGet + "?" + params.Encode())
 }
 
 /*
@@ -94,7 +94,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90214
 POST https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token=ACCESS_TOKEN
 */
 func AddTagUsers(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddTagUsers, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddTagUsers, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -107,7 +107,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90215
 POST https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers?access_token=ACCESS_TOKEN
 */
 func DelTagUsers(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDelTagUsers, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDelTagUsers, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -120,5 +120,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90216
 GET https://qyapi.weixin.qq.com/cgi-bin/tag/list?access_token=ACCESS_TOKEN
 */
 func List(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiList)
+    return ctx.Client.HTTPGet(apiList)
 }

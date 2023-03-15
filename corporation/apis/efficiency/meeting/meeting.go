@@ -16,17 +16,17 @@
 package meeting
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCreate           = "/cgi-bin/meeting/create"
-	apiUpdate           = "/cgi-bin/meeting/update"
-	apiCancel           = "/cgi-bin/meeting/cancel"
-	apiGetUserMeetingId = "/cgi-bin/meeting/get_user_meetingid"
-	apiGetInfo          = "/cgi-bin/meeting/get_info"
+    apiCreate           = "/cgi-bin/meeting/create"
+    apiUpdate           = "/cgi-bin/meeting/update"
+    apiCancel           = "/cgi-bin/meeting/cancel"
+    apiGetUserMeetingId = "/cgi-bin/meeting/get_user_meetingid"
+    apiGetInfo          = "/cgi-bin/meeting/get_info"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93627
 POST https://qyapi.weixin.qq.com/cgi-bin/meeting/create?access_token=ACCESS_TOKEN
 */
 func Create(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93631
 POST https://qyapi.weixin.qq.com/cgi-bin/meeting/update?access_token=ACCESS_TOKEN
 */
 func Update(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93630
 POST https://qyapi.weixin.qq.com/cgi-bin/meeting/cancel?access_token=ACCESS_TOKEN
 */
 func Cancel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCancel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCancel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93628
 POST https://qyapi.weixin.qq.com/cgi-bin/meeting/get_user_meetingid?access_token=ACCESS_TOKEN
 */
 func GetUserMeetingId(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetUserMeetingId, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetUserMeetingId, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93629
 POST https://qyapi.weixin.qq.com/cgi-bin/meeting/get_info?access_token=ACCESS_TOKEN
 */
 func GetInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

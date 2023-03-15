@@ -16,13 +16,13 @@
 package custom_app
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetOpenApprovalData = "/cgi-bin/corp/getopenapprovaldata"
+    apiGetOpenApprovalData = "/cgi-bin/corp/getopenapprovaldata"
 )
 
 /*
@@ -35,5 +35,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90269
 POST https://qyapi.weixin.qq.com/cgi-bin/corp/getopenapprovaldata?access_token=ACCESS_TOKEN
 */
 func GetOpenApprovalData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetOpenApprovalData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetOpenApprovalData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

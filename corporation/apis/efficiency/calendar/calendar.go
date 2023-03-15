@@ -16,21 +16,21 @@
 package calendar
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCalendarAdd           = "/cgi-bin/oa/calendar/add"
-	apiCalendarUpdate        = "/cgi-bin/oa/calendar/update"
-	apiCalendarGet           = "/cgi-bin/oa/calendar/get"
-	apiCalendarDel           = "/cgi-bin/oa/calendar/del"
-	apiScheduleAdd           = "/cgi-bin/oa/schedule/add"
-	apiScheduleUpdate        = "/cgi-bin/oa/schedule/update"
-	apiScheduleGet           = "/cgi-bin/oa/schedule/get"
-	apiScheduleDel           = "/cgi-bin/oa/schedule/del"
-	apiScheduleGetByCalendar = "/cgi-bin/oa/schedule/get_by_calendar"
+    apiCalendarAdd           = "/cgi-bin/oa/calendar/add"
+    apiCalendarUpdate        = "/cgi-bin/oa/calendar/update"
+    apiCalendarGet           = "/cgi-bin/oa/calendar/get"
+    apiCalendarDel           = "/cgi-bin/oa/calendar/del"
+    apiScheduleAdd           = "/cgi-bin/oa/schedule/add"
+    apiScheduleUpdate        = "/cgi-bin/oa/schedule/update"
+    apiScheduleGet           = "/cgi-bin/oa/schedule/get"
+    apiScheduleDel           = "/cgi-bin/oa/schedule/del"
+    apiScheduleGetByCalendar = "/cgi-bin/oa/schedule/get_by_calendar"
 )
 
 /*
@@ -43,7 +43,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92618
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/calendar/add?access_token=ACCESS_TOKEN
 */
 func CalendarAdd(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCalendarAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCalendarAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -56,7 +56,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92619
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/calendar/update?access_token=ACCESS_TOKEN
 */
 func CalendarUpdate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCalendarUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCalendarUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -69,7 +69,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92621
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/calendar/get?access_token=ACCESS_TOKEN
 */
 func CalendarGet(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCalendarGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCalendarGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -82,7 +82,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92620
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/calendar/del?access_token=ACCESS_TOKEN
 */
 func CalendarDel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCalendarDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCalendarDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -95,7 +95,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92622
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/add?access_token=ACCESS_TOKEN
 */
 func ScheduleAdd(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiScheduleAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiScheduleAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -108,7 +108,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92623
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/update?access_token=ACCESS_TOKEN
 */
 func ScheduleUpdate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiScheduleUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiScheduleUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -121,7 +121,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92624
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/get?access_token=ACCESS_TOKEN
 */
 func ScheduleGet(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiScheduleGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiScheduleGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -134,7 +134,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92625
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/del?access_token=ACCESS_TOKEN
 */
 func ScheduleDel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiScheduleDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiScheduleDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -147,5 +147,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92626
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/get_by_calendar?access_token=ACCESS_TOKEN
 */
 func ScheduleGetByCalendar(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiScheduleGetByCalendar, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiScheduleGetByCalendar, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -16,15 +16,15 @@
 package corp_group
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiListAppShareInfo = "/cgi-bin/corpgroup/corp/list_app_share_info"
-	apiGetToken         = "/cgi-bin/corpgroup/corp/gettoken"
-	apiTransferSession  = "/cgi-bin/miniprogram/transfer_session"
+    apiListAppShareInfo = "/cgi-bin/corpgroup/corp/list_app_share_info"
+    apiGetToken         = "/cgi-bin/corpgroup/corp/gettoken"
+    apiTransferSession  = "/cgi-bin/miniprogram/transfer_session"
 )
 
 /*
@@ -37,7 +37,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93403
 POST https://qyapi.weixin.qq.com/cgi-bin/corpgroup/corp/list_app_share_info?access_token=ACCESS_TOKEN
 */
 func ListAppShareInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiListAppShareInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiListAppShareInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -50,7 +50,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93359
 POST https://qyapi.weixin.qq.com/cgi-bin/corpgroup/corp/gettoken?access_token=ACCESS_TOKEN
 */
 func GetToken(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetToken, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetToken, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -63,5 +63,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93355
 POST https://qyapi.weixin.qq.com/cgi-bin/miniprogram/transfer_session?access_token=ACCESS_TOKEN
 */
 func TransferSession(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiTransferSession, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiTransferSession, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

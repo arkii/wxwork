@@ -16,26 +16,26 @@
 package user
 
 import (
-	"bytes"
-	"net/url"
+    "bytes"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCreate          = "/cgi-bin/user/create"
-	apiGet             = "/cgi-bin/user/get"
-	apiUpdate          = "/cgi-bin/user/update"
-	apiDelete          = "/cgi-bin/user/delete"
-	apiBatchDelete     = "/cgi-bin/user/batchdelete"
-	apiSimpleList      = "/cgi-bin/user/simplelist"
-	apiList            = "/cgi-bin/user/list"
-	apiConvertToOpenId = "/cgi-bin/user/convert_to_openid"
-	apiConvertToUserId = "/cgi-bin/user/convert_to_userid"
-	apiAuthSucc        = "/cgi-bin/user/authsucc"
-	apiInvite          = "/cgi-bin/batch/invite"
-	apiGetJoinQrcode   = "/cgi-bin/corp/get_join_qrcode"
-	apiGetActiveStat   = "/cgi-bin/user/get_active_stat"
+    apiCreate          = "/cgi-bin/user/create"
+    apiGet             = "/cgi-bin/user/get"
+    apiUpdate          = "/cgi-bin/user/update"
+    apiDelete          = "/cgi-bin/user/delete"
+    apiBatchDelete     = "/cgi-bin/user/batchdelete"
+    apiSimpleList      = "/cgi-bin/user/simplelist"
+    apiList            = "/cgi-bin/user/list"
+    apiConvertToOpenId = "/cgi-bin/user/convert_to_openid"
+    apiConvertToUserId = "/cgi-bin/user/convert_to_userid"
+    apiAuthSucc        = "/cgi-bin/user/authsucc"
+    apiInvite          = "/cgi-bin/batch/invite"
+    apiGetJoinQrcode   = "/cgi-bin/corp/get_join_qrcode"
+    apiGetActiveStat   = "/cgi-bin/user/get_active_stat"
 )
 
 /*
@@ -48,7 +48,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90195
 POST https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token=ACCESS_TOKEN
 */
 func Create(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -61,7 +61,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90196
 GET https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&userid=USERID
 */
 func Get(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGet + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiGet + "?" + params.Encode())
 }
 
 /*
@@ -74,7 +74,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90197
 POST https://qyapi.weixin.qq.com/cgi-bin/user/update?access_token=ACCESS_TOKEN
 */
 func Update(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiUpdate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -87,7 +87,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90198
 GET https://qyapi.weixin.qq.com/cgi-bin/user/delete?access_token=ACCESS_TOKEN&userid=USERID
 */
 func Delete(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiDelete + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiDelete + "?" + params.Encode())
 }
 
 /*
@@ -100,7 +100,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90199
 POST https://qyapi.weixin.qq.com/cgi-bin/user/batchdelete?access_token=ACCESS_TOKEN
 */
 func BatchDelete(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiBatchDelete, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiBatchDelete, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -113,7 +113,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90200
 GET https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=FETCH_CHILD
 */
 func SimpleList(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiSimpleList + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiSimpleList + "?" + params.Encode())
 }
 
 /*
@@ -126,7 +126,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90201
 GET https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=FETCH_CHILD
 */
 func List(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiList + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiList + "?" + params.Encode())
 }
 
 /*
@@ -139,7 +139,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90202
 POST https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_openid?access_token=ACCESS_TOKEN
 */
 func ConvertToOpenId(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiConvertToOpenId, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiConvertToOpenId, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -152,7 +152,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90202
 POST https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_userid?access_token=ACCESS_TOKEN
 */
 func ConvertToUserId(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiConvertToUserId, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiConvertToUserId, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -165,7 +165,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90203
 GET https://qyapi.weixin.qq.com/cgi-bin/user/authsucc?access_token=ACCESS_TOKEN&userid=USERID
 */
 func AuthSucc(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiAuthSucc + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiAuthSucc + "?" + params.Encode())
 }
 
 /*
@@ -178,7 +178,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90975
 POST https://qyapi.weixin.qq.com/cgi-bin/batch/invite?access_token=ACCESS_TOKEN
 */
 func Invite(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiInvite, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiInvite, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -191,7 +191,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91714
 GET https://qyapi.weixin.qq.com/cgi-bin/corp/get_join_qrcode?access_token=ACCESS_TOKEN&size_type=SIZE_TYPE
 */
 func GetJoinQrcode(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetJoinQrcode + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiGetJoinQrcode + "?" + params.Encode())
 }
 
 /*
@@ -204,5 +204,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92714
 POST https://qyapi.weixin.qq.com/cgi-bin/user/get_active_stat?access_token=ACCESS_TOKEN
 */
 func GetActiveStat(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetActiveStat, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetActiveStat, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -15,54 +15,54 @@
 package department_test
 
 import (
-	"fmt"
-	"net/url"
+    "fmt"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/school/department"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/school/department"
 )
 
 func ExampleCreate() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := department.Create(ctx, payload)
+    payload := []byte("{}")
+    resp, err := department.Create(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleUpdate() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := department.Update(ctx, payload)
+    payload := []byte("{}")
+    resp, err := department.Update(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleDelete() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	params := url.Values{}
-	resp, err := department.Delete(ctx, params)
+    params := url.Values{}
+    resp, err := department.Delete(ctx, params)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	params := url.Values{}
-	resp, err := department.List(ctx, params)
+    params := url.Values{}
+    resp, err := department.List(ctx, params)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleSetUpgradeInfo() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := department.SetUpgradeInfo(ctx, payload)
+    payload := []byte("{}")
+    resp, err := department.SetUpgradeInfo(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

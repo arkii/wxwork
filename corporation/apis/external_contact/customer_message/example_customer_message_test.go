@@ -15,89 +15,89 @@
 package customer_message_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/external_contact/customer_message"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/external_contact/customer_message"
 )
 
 func ExampleAddMsgTemplate() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.AddMsgTemplate(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.AddMsgTemplate(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetGroupmsgList() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GetGroupmsgList(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GetGroupmsgList(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetGroupmsgTask() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GetGroupmsgTask(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GetGroupmsgTask(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetGroupmsgSendResult() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GetGroupmsgSendResult(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GetGroupmsgSendResult(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleSendWelcomeMsg() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.SendWelcomeMsg(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.SendWelcomeMsg(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGroupWelcomeTemplateAdd() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GroupWelcomeTemplateAdd(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GroupWelcomeTemplateAdd(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGroupWelcomeTemplateEdit() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GroupWelcomeTemplateEdit(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GroupWelcomeTemplateEdit(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGroupWelcomeTemplateGet() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GroupWelcomeTemplateGet(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GroupWelcomeTemplateGet(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGroupWelcomeTemplateDel() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	payload := []byte("{}")
-	resp, err := customer_message.GroupWelcomeTemplateDel(ctx, payload)
+    payload := []byte("{}")
+    resp, err := customer_message.GroupWelcomeTemplateDel(ctx, payload)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

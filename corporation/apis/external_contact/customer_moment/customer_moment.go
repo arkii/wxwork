@@ -16,17 +16,17 @@
 package customer_moment
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetMomentList         = "/cgi-bin/externalcontact/get_moment_list"
-	apiGetMomentTask         = "/cgi-bin/externalcontact/get_moment_task"
-	apiGetMomentCustomerList = "/cgi-bin/externalcontact/get_moment_customer_list"
-	apiGetMomentSendResult   = "/cgi-bin/externalcontact/get_moment_send_result"
-	apiGetMomentComments     = "/cgi-bin/externalcontact/get_moment_comments"
+    apiGetMomentList         = "/cgi-bin/externalcontact/get_moment_list"
+    apiGetMomentTask         = "/cgi-bin/externalcontact/get_moment_task"
+    apiGetMomentCustomerList = "/cgi-bin/externalcontact/get_moment_customer_list"
+    apiGetMomentSendResult   = "/cgi-bin/externalcontact/get_moment_send_result"
+    apiGetMomentComments     = "/cgi-bin/externalcontact/get_moment_comments"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93333
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_moment_list?access_token=ACCESS_TOKEN
 */
 func GetMomentList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMomentList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMomentList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93333
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_moment_task?access_token=ACCESS_TOKEN
 */
 func GetMomentTask(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMomentTask, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMomentTask, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93333
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_moment_customer_list?access_token=ACCESS_TOKEN
 */
 func GetMomentCustomerList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMomentCustomerList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMomentCustomerList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93333
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_moment_send_result?access_token=ACCESS_TOKEN
 */
 func GetMomentSendResult(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMomentSendResult, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMomentSendResult, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93333
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_moment_comments?access_token=ACCESS_TOKEN
 */
 func GetMomentComments(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetMomentComments, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetMomentComments, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

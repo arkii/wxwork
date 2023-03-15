@@ -16,22 +16,22 @@
 package app
 
 import (
-	"bytes"
-	"net/url"
+    "bytes"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiAgentGet             = "/cgi-bin/agent/get"
-	apiAgentList            = "/cgi-bin/agent/list"
-	apiAgentSet             = "/cgi-bin/agent/set"
-	apiMenuCreate           = "/cgi-bin/menu/create"
-	apiMenuGet              = "/cgi-bin/menu/get"
-	apiMenuDelete           = "/cgi-bin/menu/delete"
-	apiSetWorkbenchTemplate = "/cgi-bin/agent/set_workbench_template"
-	apiGetWorkbenchTemplate = "/cgi-bin/agent/get_workbench_template"
-	apiSetWorkbenchData     = "/cgi-bin/agent/set_workbench_data"
+    apiAgentGet             = "/cgi-bin/agent/get"
+    apiAgentList            = "/cgi-bin/agent/list"
+    apiAgentSet             = "/cgi-bin/agent/set"
+    apiMenuCreate           = "/cgi-bin/menu/create"
+    apiMenuGet              = "/cgi-bin/menu/get"
+    apiMenuDelete           = "/cgi-bin/menu/delete"
+    apiSetWorkbenchTemplate = "/cgi-bin/agent/set_workbench_template"
+    apiGetWorkbenchTemplate = "/cgi-bin/agent/get_workbench_template"
+    apiSetWorkbenchData     = "/cgi-bin/agent/set_workbench_data"
 )
 
 /*
@@ -44,7 +44,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90227
 GET https://qyapi.weixin.qq.com/cgi-bin/agent/get?access_token=ACCESS_TOKEN&agentid=AGENTID参数说明
 */
 func AgentGet(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiAgentGet + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiAgentGet + "?" + params.Encode())
 }
 
 /*
@@ -57,7 +57,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90227
 GET https://qyapi.weixin.qq.com/cgi-bin/agent/list?access_token=ACCESS_TOKEN
 */
 func AgentList(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiAgentList)
+    return ctx.Client.HTTPGet(apiAgentList)
 }
 
 /*
@@ -70,7 +70,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90228
 POST https://qyapi.weixin.qq.com/cgi-bin/agent/set?access_token=ACCESS_TOKEN
 */
 func AgentSet(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAgentSet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAgentSet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -83,7 +83,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90231
 POST https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN&agentid=AGENTID
 */
 func MenuCreate(ctx *corporation.App, payload []byte, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiMenuCreate+"?"+params.Encode(), bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiMenuCreate+"?"+params.Encode(), bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -96,7 +96,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90232
 GET https://qyapi.weixin.qq.com/cgi-bin/menu/get?access_token=ACCESS_TOKEN&agentid=AGENTID
 */
 func MenuGet(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiMenuGet + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiMenuGet + "?" + params.Encode())
 }
 
 /*
@@ -109,7 +109,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90233
 GET https://qyapi.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN&agentid=AGENTID
 */
 func MenuDelete(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiMenuDelete + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiMenuDelete + "?" + params.Encode())
 }
 
 /*
@@ -122,7 +122,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92535
 POST https://qyapi.weixin.qq.com/cgi-bin/agent/set_workbench_template?access_token=ACCESS_TOKEN
 */
 func SetWorkbenchTemplate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetWorkbenchTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetWorkbenchTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -135,7 +135,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92535
 POST https://qyapi.weixin.qq.com/cgi-bin/agent/get_workbench_template?access_token=ACCESS_TOKEN
 */
 func GetWorkbenchTemplate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetWorkbenchTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetWorkbenchTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -148,5 +148,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92535
 POST https://qyapi.weixin.qq.com/cgi-bin/agent/set_workbench_data?access_token=ACCESS_TOKEN
 */
 func SetWorkbenchData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetWorkbenchData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetWorkbenchData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

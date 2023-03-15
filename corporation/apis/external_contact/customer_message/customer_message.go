@@ -16,21 +16,21 @@
 package customer_message
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiAddMsgTemplate           = "/cgi-bin/externalcontact/add_msg_template"
-	apiGetGroupmsgList          = "/cgi-bin/externalcontact/get_groupmsg_list"
-	apiGetGroupmsgTask          = "/cgi-bin/externalcontact/get_groupmsg_task"
-	apiGetGroupmsgSendResult    = "/cgi-bin/externalcontact/get_groupmsg_send_result"
-	apiSendWelcomeMsg           = "/cgi-bin/externalcontact/send_welcome_msg"
-	apiGroupWelcomeTemplateAdd  = "/cgi-bin/externalcontact/group_welcome_template/add"
-	apiGroupWelcomeTemplateEdit = "/cgi-bin/externalcontact/group_welcome_template/edit"
-	apiGroupWelcomeTemplateGet  = "/cgi-bin/externalcontact/group_welcome_template/get"
-	apiGroupWelcomeTemplateDel  = "/cgi-bin/externalcontact/group_welcome_template/del"
+    apiAddMsgTemplate           = "/cgi-bin/externalcontact/add_msg_template"
+    apiGetGroupmsgList          = "/cgi-bin/externalcontact/get_groupmsg_list"
+    apiGetGroupmsgTask          = "/cgi-bin/externalcontact/get_groupmsg_task"
+    apiGetGroupmsgSendResult    = "/cgi-bin/externalcontact/get_groupmsg_send_result"
+    apiSendWelcomeMsg           = "/cgi-bin/externalcontact/send_welcome_msg"
+    apiGroupWelcomeTemplateAdd  = "/cgi-bin/externalcontact/group_welcome_template/add"
+    apiGroupWelcomeTemplateEdit = "/cgi-bin/externalcontact/group_welcome_template/edit"
+    apiGroupWelcomeTemplateGet  = "/cgi-bin/externalcontact/group_welcome_template/get"
+    apiGroupWelcomeTemplateDel  = "/cgi-bin/externalcontact/group_welcome_template/del"
 )
 
 /*
@@ -43,7 +43,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92135
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_msg_template?access_token=ACCESS_TOKEN
 */
 func AddMsgTemplate(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddMsgTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddMsgTemplate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -56,7 +56,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93338
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_groupmsg_list?access_token=ACCESS_TOKEN
 */
 func GetGroupmsgList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetGroupmsgList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetGroupmsgList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -69,7 +69,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93338
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_groupmsg_task?access_token=ACCESS_TOKEN
 */
 func GetGroupmsgTask(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetGroupmsgTask, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetGroupmsgTask, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -82,7 +82,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93338
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_groupmsg_send_result?access_token=ACCESS_TOKEN
 */
 func GetGroupmsgSendResult(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetGroupmsgSendResult, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetGroupmsgSendResult, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -95,7 +95,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92137
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/send_welcome_msg?access_token=ACCESS_TOKEN
 */
 func SendWelcomeMsg(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSendWelcomeMsg, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSendWelcomeMsg, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -108,7 +108,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92366
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/add?access_token=ACCESS_TOKEN
 */
 func GroupWelcomeTemplateAdd(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupWelcomeTemplateAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupWelcomeTemplateAdd, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -121,7 +121,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92366
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/edit?access_token=ACCESS_TOKEN
 */
 func GroupWelcomeTemplateEdit(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupWelcomeTemplateEdit, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupWelcomeTemplateEdit, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -134,7 +134,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92366
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/get?access_token=ACCESS_TOKEN
 */
 func GroupWelcomeTemplateGet(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupWelcomeTemplateGet, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupWelcomeTemplateGet, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -147,5 +147,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92366
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/del?access_token=ACCESS_TOKEN
 */
 func GroupWelcomeTemplateDel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupWelcomeTemplateDel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupWelcomeTemplateDel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

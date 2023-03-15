@@ -15,24 +15,24 @@
 package util_test
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/fastwego/wxwork/corporation"
-	"github.com/fastwego/wxwork/corporation/apis/util"
+    "github.com/arkii/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation/apis/util"
 )
 
 func ExampleGetApiDomainIp() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	resp, err := util.GetApiDomainIp(ctx)
+    resp, err := util.GetApiDomainIp(ctx)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }
 
 func ExampleGetCallbackIp() {
-	var ctx *corporation.App
+    var ctx *corporation.App
 
-	resp, err := util.GetCallbackIp(ctx)
+    resp, err := util.GetCallbackIp(ctx)
 
-	fmt.Println(resp, err)
+    fmt.Println(resp, err)
 }

@@ -16,16 +16,16 @@
 package customer_assign
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetUnassignedList = "/cgi-bin/externalcontact/get_unassigned_list"
-	apiTransfer          = "/cgi-bin/externalcontact/transfer"
-	apiGetTransferResult = "/cgi-bin/externalcontact/get_transfer_result"
-	apiGroupChatTransfer = "/cgi-bin/externalcontact/groupchat/transfer"
+    apiGetUnassignedList = "/cgi-bin/externalcontact/get_unassigned_list"
+    apiTransfer          = "/cgi-bin/externalcontact/transfer"
+    apiGetTransferResult = "/cgi-bin/externalcontact/get_transfer_result"
+    apiGroupChatTransfer = "/cgi-bin/externalcontact/groupchat/transfer"
 )
 
 /*
@@ -38,7 +38,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92124
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_unassigned_list?access_token=ACCESS_TOKEN
 */
 func GetUnassignedList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetUnassignedList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetUnassignedList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -51,7 +51,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92125
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/transfer?access_token=ACCESS_TOKEN
 */
 func Transfer(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiTransfer, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiTransfer, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -64,7 +64,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92973
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_transfer_result?access_token=ACCESS_TOKEN
 */
 func GetTransferResult(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetTransferResult, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetTransferResult, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -77,5 +77,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92127
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/groupchat/transfer?access_token=ACCESS_TOKEN
 */
 func GroupChatTransfer(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGroupChatTransfer, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGroupChatTransfer, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -16,21 +16,21 @@
 package living
 
 import (
-	"bytes"
-	"net/url"
+    "bytes"
+    "net/url"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiCreate             = "/cgi-bin/living/create"
-	apiModify             = "/cgi-bin/living/modify"
-	apiCancel             = "/cgi-bin/living/cancel"
-	apiDeleteReplayData   = "/cgi-bin/living/delete_replay_data"
-	apiGetLivingCode      = "/cgi-bin/living/get_living_code"
-	apiGetUserAllLivingId = "/cgi-bin/living/get_user_all_livingid"
-	apiGetLivingInfo      = "/cgi-bin/living/get_living_info"
-	apiGetWatchStat       = "/cgi-bin/living/get_watch_stat"
+    apiCreate             = "/cgi-bin/living/create"
+    apiModify             = "/cgi-bin/living/modify"
+    apiCancel             = "/cgi-bin/living/cancel"
+    apiDeleteReplayData   = "/cgi-bin/living/delete_replay_data"
+    apiGetLivingCode      = "/cgi-bin/living/get_living_code"
+    apiGetUserAllLivingId = "/cgi-bin/living/get_user_all_livingid"
+    apiGetLivingInfo      = "/cgi-bin/living/get_living_info"
+    apiGetWatchStat       = "/cgi-bin/living/get_watch_stat"
 )
 
 /*
@@ -43,7 +43,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93637
 POST https://qyapi.weixin.qq.com/cgi-bin/living/create?access_token=ACCESS_TOKEN
 */
 func Create(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCreate, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -56,7 +56,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93640
 POST https://qyapi.weixin.qq.com/cgi-bin/living/modify?access_token=ACCESS_TOKEN
 */
 func Modify(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiModify, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiModify, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -69,7 +69,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93638
 POST https://qyapi.weixin.qq.com/cgi-bin/living/cancel?access_token=ACCESS_TOKEN
 */
 func Cancel(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCancel, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiCancel, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -82,7 +82,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93874
 POST https://qyapi.weixin.qq.com/cgi-bin/living/delete_replay_data?access_token=ACCESS_TOKEN
 */
 func DeleteReplayData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDeleteReplayData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDeleteReplayData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -95,7 +95,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93641
 POST https://qyapi.weixin.qq.com/cgi-bin/living/get_living_code?access_token=ACCESS_TOKEN
 */
 func GetLivingCode(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetLivingCode, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetLivingCode, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -108,7 +108,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93634
 POST https://qyapi.weixin.qq.com/cgi-bin/living/get_user_all_livingid?access_token=ACCESS_TOKEN
 */
 func GetUserAllLivingId(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetUserAllLivingId, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetUserAllLivingId, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -121,7 +121,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93635
 GET https://qyapi.weixin.qq.com/cgi-bin/living/get_living_info?access_token=ACCESS_TOKEN&livingid=LIVINGID
 */
 func GetLivingInfo(ctx *corporation.App, params url.Values) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetLivingInfo + "?" + params.Encode())
+    return ctx.Client.HTTPGet(apiGetLivingInfo + "?" + params.Encode())
 }
 
 /*
@@ -134,5 +134,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93636
 POST https://qyapi.weixin.qq.com/cgi-bin/living/get_watch_stat?access_token=ACCESS_TOKEN
 */
 func GetWatchStat(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetWatchStat, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetWatchStat, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

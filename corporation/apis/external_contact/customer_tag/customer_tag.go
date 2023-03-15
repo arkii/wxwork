@@ -16,17 +16,17 @@
 package customer_tag
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetCorpTagList = "/cgi-bin/externalcontact/get_corp_tag_list"
-	apiAddCorpTag     = "/cgi-bin/externalcontact/add_corp_tag"
-	apiEditCorpTag    = "/cgi-bin/externalcontact/edit_corp_tag"
-	apiDelCorpTag     = "/cgi-bin/externalcontact/del_corp_tag"
-	apiMarkTag        = "/cgi-bin/externalcontact/mark_tag"
+    apiGetCorpTagList = "/cgi-bin/externalcontact/get_corp_tag_list"
+    apiAddCorpTag     = "/cgi-bin/externalcontact/add_corp_tag"
+    apiEditCorpTag    = "/cgi-bin/externalcontact/edit_corp_tag"
+    apiDelCorpTag     = "/cgi-bin/externalcontact/del_corp_tag"
+    apiMarkTag        = "/cgi-bin/externalcontact/mark_tag"
 )
 
 /*
@@ -39,7 +39,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92117
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_corp_tag_list?access_token=ACCESS_TOKEN
 */
 func GetCorpTagList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCorpTagList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCorpTagList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -52,7 +52,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92117
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_corp_tag?access_token=ACCESS_TOKEN
 */
 func AddCorpTag(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -65,7 +65,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92117
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/edit_corp_tag?access_token=ACCESS_TOKEN
 */
 func EditCorpTag(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiEditCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiEditCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -78,7 +78,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92117
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/del_corp_tag?access_token=ACCESS_TOKEN
 */
 func DelCorpTag(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiDelCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiDelCorpTag, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -91,5 +91,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/92118
 POST https://qyapi.weixin.qq.com/cgi-bin/externalcontact/mark_tag?access_token=ACCESS_TOKEN
 */
 func MarkTag(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiMarkTag, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiMarkTag, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -16,20 +16,20 @@
 package checkin
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetCorpCheckinOption   = "/cgi-bin/checkin/getcorpcheckinoption"
-	apiGetCheckinOption       = "/cgi-bin/checkin/getcheckinoption"
-	apiGetCheckinData         = "/cgi-bin/checkin/getcheckindata"
-	apiGetCheckinDayData      = "/cgi-bin/checkin/getcheckin_daydata"
-	apiGetCheckinMonthData    = "/cgi-bin/checkin/getcheckin_monthdata"
-	apiGetCheckinScheduleList = "/cgi-bin/checkin/getcheckinschedulist"
-	apiSetCheckinScheduleList = "/cgi-bin/checkin/setcheckinschedulist"
-	apiAddCheckinUserFace     = "/cgi-bin/checkin/addcheckinuserface"
+    apiGetCorpCheckinOption   = "/cgi-bin/checkin/getcorpcheckinoption"
+    apiGetCheckinOption       = "/cgi-bin/checkin/getcheckinoption"
+    apiGetCheckinData         = "/cgi-bin/checkin/getcheckindata"
+    apiGetCheckinDayData      = "/cgi-bin/checkin/getcheckin_daydata"
+    apiGetCheckinMonthData    = "/cgi-bin/checkin/getcheckin_monthdata"
+    apiGetCheckinScheduleList = "/cgi-bin/checkin/getcheckinschedulist"
+    apiSetCheckinScheduleList = "/cgi-bin/checkin/setcheckinschedulist"
+    apiAddCheckinUserFace     = "/cgi-bin/checkin/addcheckinuserface"
 )
 
 /*
@@ -42,7 +42,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93384
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcorpcheckinoption?access_token=ACCESS_TOKEN
 */
 func GetCorpCheckinOption(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCorpCheckinOption, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCorpCheckinOption, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -55,7 +55,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90263
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcheckinoption?access_token=ACCESS_TOKEN
 */
 func GetCheckinOption(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCheckinOption, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCheckinOption, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -68,7 +68,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/90262
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcheckindata?access_token=ACCESS_TOKEN
 */
 func GetCheckinData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCheckinData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCheckinData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -81,7 +81,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93374
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcheckin_daydata?access_token=ACCESS_TOKEN
 */
 func GetCheckinDayData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCheckinDayData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCheckinDayData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -94,7 +94,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93387
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcheckin_monthdata?access_token=ACCESS_TOKEN
 */
 func GetCheckinMonthData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCheckinMonthData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCheckinMonthData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -107,7 +107,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93380
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/getcheckinschedulist?access_token=ACCESS_TOKEN
 */
 func GetCheckinScheduleList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetCheckinScheduleList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetCheckinScheduleList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -120,7 +120,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93385
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/setcheckinschedulist?access_token=ACCESS_TOKEN
 */
 func SetCheckinScheduleList(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetCheckinScheduleList, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetCheckinScheduleList, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -133,5 +133,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93378
 POST https://qyapi.weixin.qq.com/cgi-bin/checkin/addcheckinuserface?access_token=ACCESS_TOKEN
 */
 func AddCheckinUserFace(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiAddCheckinUserFace, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiAddCheckinUserFace, bytes.NewReader(payload), "application/json;charset=utf-8")
 }

@@ -16,20 +16,20 @@
 package approve
 
 import (
-	"bytes"
+    "bytes"
 
-	"github.com/fastwego/wxwork/corporation"
+    "github.com/arkii/wxwork/corporation"
 )
 
 const (
-	apiGetTemplateDetail    = "/cgi-bin/oa/gettemplatedetail"
-	apiApplyEvent           = "/cgi-bin/oa/applyevent"
-	apiGetApprovalInfo      = "/cgi-bin/oa/getapprovalinfo"
-	apiGetApprovalDetail    = "/cgi-bin/oa/getapprovaldetail"
-	apiGetApprovalData      = "/cgi-bin/corp/getapprovaldata"
-	apiGetCorpConf          = "/cgi-bin/oa/vacation/getcorpconf"
-	apiGetUserVacationQuota = "/cgi-bin/oa/vacation/getuservacationquota"
-	apiSetOneUserQuota      = "/cgi-bin/oa/vacation/setoneuserquota"
+    apiGetTemplateDetail    = "/cgi-bin/oa/gettemplatedetail"
+    apiApplyEvent           = "/cgi-bin/oa/applyevent"
+    apiGetApprovalInfo      = "/cgi-bin/oa/getapprovalinfo"
+    apiGetApprovalDetail    = "/cgi-bin/oa/getapprovaldetail"
+    apiGetApprovalData      = "/cgi-bin/corp/getapprovaldata"
+    apiGetCorpConf          = "/cgi-bin/oa/vacation/getcorpconf"
+    apiGetUserVacationQuota = "/cgi-bin/oa/vacation/getuservacationquota"
+    apiSetOneUserQuota      = "/cgi-bin/oa/vacation/setoneuserquota"
 )
 
 /*
@@ -42,7 +42,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91982
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/gettemplatedetail?access_token=ACCESS_TOKEN
 */
 func GetTemplateDetail(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetTemplateDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetTemplateDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -55,7 +55,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91853
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/applyevent?access_token=ACCESS_TOKEN
 */
 func ApplyEvent(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiApplyEvent, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiApplyEvent, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -68,7 +68,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91816
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/getapprovalinfo?access_token=ACCESS_TOKEN
 */
 func GetApprovalInfo(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetApprovalInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetApprovalInfo, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -81,7 +81,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91983
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/getapprovaldetail?access_token=ACCESS_TOKEN
 */
 func GetApprovalDetail(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetApprovalDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetApprovalDetail, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -94,7 +94,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/91530
 POST https://qyapi.weixin.qq.com/cgi-bin/corp/getapprovaldata?access_token=ACCESS_TOKEN
 */
 func GetApprovalData(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetApprovalData, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetApprovalData, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -107,7 +107,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93375
 GET https://qyapi.weixin.qq.com/cgi-bin/oa/vacation/getcorpconf?access_token=ACCESS_TOKEN
 */
 func GetCorpConf(ctx *corporation.App) (resp []byte, err error) {
-	return ctx.Client.HTTPGet(apiGetCorpConf)
+    return ctx.Client.HTTPGet(apiGetCorpConf)
 }
 
 /*
@@ -120,7 +120,7 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93376
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/vacation/getuservacationquota?access_token=ACCESS_TOKEN
 */
 func GetUserVacationQuota(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiGetUserVacationQuota, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiGetUserVacationQuota, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
 
 /*
@@ -133,5 +133,5 @@ See: https://work.weixin.qq.com/api/doc/90000/90135/93377
 POST https://qyapi.weixin.qq.com/cgi-bin/oa/vacation/setoneuserquota?access_token=ACCESS_TOKEN
 */
 func SetOneUserQuota(ctx *corporation.App, payload []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiSetOneUserQuota, bytes.NewReader(payload), "application/json;charset=utf-8")
+    return ctx.Client.HTTPPost(apiSetOneUserQuota, bytes.NewReader(payload), "application/json;charset=utf-8")
 }
