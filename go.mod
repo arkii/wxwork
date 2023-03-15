@@ -1,11 +1,10 @@
 module github.com/arkii/wxwork
 
-go 1.14
+go 1.15
 
 require (
-	github.com/PuerkitoBio/goquery v1.5.1
-	github.com/faabiosr/cachego v0.15.0
-	github.com/arkii/wxwork v0.1.1
-	github.com/gomodule/redigo v1.8.2
-	github.com/iancoleman/strcase v0.0.0-20191112232945-16388991a334
+	github.com/PuerkitoBio/goquery v1.8.1
+	github.com/faabiosr/cachego v0.18.0
+	github.com/gomodule/redigo v1.8.9
+	github.com/iancoleman/strcase v0.2.0
 )
