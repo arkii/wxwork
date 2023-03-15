@@ -8,7 +8,7 @@ A fast [wxwork](https://work.weixin.qq.com/api/doc) development sdk written in G
 ## 快速开始 & demo
 
 ```shell script
-go get github.com/fastwego/wxwork
+go get github.com/arkii/wxwork
 ```
 
 ```go
